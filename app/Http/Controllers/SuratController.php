@@ -278,7 +278,7 @@ class SuratController extends Controller
         $phpWord->setValue('penandatangan', $surat->penandatangan->nama);
         $phpWord->setValue('nip_penandatangan', $surat->penandatangan->nip);
 
-        $outputFile = 'surat_' . $surat->detailSurat->nik . '_' . $surat->tanggal_surat . '.docx';
+        $outputFile = 'surat_'. $surat->kode_unik. '-' . $surat->detailSurat->nik . '_' . $surat->tanggal_surat . '.docx';
         $phpWord->saveAs(public_path('storage/surat/' . $outputFile));
         $surat->update(['file_docx_path' => $outputFile]);
 
